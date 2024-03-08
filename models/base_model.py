@@ -14,6 +14,7 @@ class BaseModel:
     class BaseModel that defines all
     common attributes/methods for other classes:
     """
+
     def __init__(self, *args, **kwargs):
         """_summary_
 
@@ -38,11 +39,6 @@ class BaseModel:
         should print: [<class name>] (<self.id>) <self.__dict__>
         """
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
-    
-    def __repr__(self):
-        """Retrun: [<class name>] (<self.id>) <self.__dict__>"""
-
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """
@@ -58,7 +54,7 @@ class BaseModel:
         keys/values of __dict__ of the instance
         """
         obj_dict = self.__dict__.copy()
-        obj_dict['created_at'] = self.created_at.isoformat()
-        obj_dict['updated_at'] = self.updated_at.isoformat()
-        obj_dict['__class__'] = self.__class__.__name__
+        obj_dict["created_at"] = self.created_at.isoformat()
+        obj_dict["updated_at"] = self.updated_at.isoformat()
+        obj_dict["__class__"] = self.__class__.__name__
         return obj_dict
