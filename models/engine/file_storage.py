@@ -31,14 +31,15 @@ class FileStorage:
         json_dict = {}
         for key, value in self.all().items():
             json_dict[key] = value.to_dict()
-        with open(self.__file_path, "w") as file:
+        with open(self.__file_path, "w", encoding="utf-8") as file:
             json.dump(json_dict, file)
 
     def reload(self):
         """Reload objects from the JSON file if it exists."""
         from models.base_model import BaseModel
+
         try:
-            with open(self.__file_path, "r") as fp:
+            with open(self.__file_path, "r", encoding="utf-8") as fp:
                 json_dict = json.load(fp)
         except Exception:
             return
