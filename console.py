@@ -5,13 +5,27 @@ import os
 import json
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.review import Review
+from models.state import State
+from models.place import Place
 
 
 class HBNBCommand(cmd.Cmd):
     """this is the console class"""
 
     prompt = "(hbnb) "
-    class_names_list = ["BaseModel", "User"]
+    class_names_list = [
+        "BaseModel",
+        "User",
+        "State",
+        "City",
+        "Amenity",
+        "Place",
+        "Review",
+    ]
     class_attr = ["id", "created_at", "updated_at"]
 
     def do_quit(self, line):
@@ -31,8 +45,7 @@ class HBNBCommand(cmd.Cmd):
         if class_var not in self.class_names_list:
             print("** class doesn't exist **")
         else:
-            new_instance = BaseModel()
-            storage.new(new_instance)
+            new_instance = eval(class_var)()
             storage.save()
             print(new_instance.id)
 
