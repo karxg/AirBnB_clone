@@ -108,6 +108,7 @@ class HBNBCommand(cmd.Cmd):
             all_objs = storage.all()
             for obj in all_objs.values():
                 print(obj)
+            return
         else:
             args_list = args.split()
             class_name = args_list[0]
