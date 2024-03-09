@@ -11,9 +11,7 @@ class HBNBCommand(cmd.Cmd):
     """this is the console class"""
 
     prompt = "(hbnb) "
-    class_names_list = [
-        "BaseModel",
-    ]
+    class_names_list = ["BaseModel", "User"]
     class_attr = ["id", "created_at", "updated_at"]
 
     def do_quit(self, line):

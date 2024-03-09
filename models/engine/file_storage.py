@@ -37,6 +37,7 @@ class FileStorage:
     def reload(self):
         """Reload objects from the JSON file if it exists."""
         from models.base_model import BaseModel
+        from models.user import User
 
         try:
             with open(self.__file_path, "r", encoding="utf-8") as fp:
