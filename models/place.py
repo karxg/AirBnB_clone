@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""a class Place that inherits from BaseModel"""
+"""Defines the Place class, a subclass of BaseModel."""
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """a class Place that inherits from BaseModel"""
+    """Represents a place where users can stay, inherits from BaseModel."""
 
     city_id = ""
     user_id = ""
