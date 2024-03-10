@@ -95,12 +95,14 @@ class TestUser_save(unittest.TestCase):
 
     @classmethod
     def setUp(self):
+        """Set up the test environment."""
         try:
             os.rename("file.json", "tmp")
         except IOError:
             pass
 
     def tearDown(self):
+        """Tear down the test environment."""
         try:
             os.remove("file.json")
         except IOError:
