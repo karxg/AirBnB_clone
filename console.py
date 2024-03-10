@@ -213,15 +213,15 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def do_help(self, arg: str):
-        """help you in understanding what every thing do"""
+        """Displays help information"""
         return super().do_help(arg)
 
     def emptyline(self) -> bool:
-        """a func to pass the func before it"""
+        """Handles empty lines"""
         pass
 
     def do_clear(self, args):
-        """Clears the console screen."""
+        """Clears the console screen"""
         os.system("clear")
 
 
