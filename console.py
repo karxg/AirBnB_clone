@@ -26,12 +26,25 @@ class HBNBCommand(cmd.Cmd):
         "Place",
         "Review",
     ]
+    func_list = ["quit", "show", "all", "create", "destroy", "update", "EOF"]
     class_attr = ["id", "created_at", "updated_at"]
 
     def do_quit(self, line):
         """Quit command to exit the program"""
         exit()
 
+    def precmd(self, line: str) -> str:
+        if "." and "()" in line:
+            pre_line_list = line.split(".")
+            class_name = pre_line_list[0]
+            func_name = pre_line_list[1].split('(')[0]
+            if func_name in self.func_list:
+                new_line = func_name + " "+ class_name
+                return new_line
+            return line
+        else:
+            return line
+    
     def do_create(self, args):
         """
         Creates a new instance of BaseModel,
@@ -41,11 +54,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args_list = args.split()
-        class_var = args_list[0]
-        if class_var not in self.class_names_list:
+        class_name = args_list[0]
+        if class_name not in self.class_names_list:
             print("** class doesn't exist **")
         else:
-            new_instance = eval(class_var)()
+            new_instance = eval(class_name)()
             storage.save()
             print(new_instance.id)
 
