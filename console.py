@@ -53,8 +53,14 @@ class HBNBCommand(cmd.Cmd):
                 parentheses = second_part.split("(")[1]
                 if ")" in parentheses:
                     class_id = parentheses.split(")")[0]
+                    if class_id.startswith('"') and class_id.endswith('"'):
+                        class_id = class_id.strip('"')
                     if func_name in self.func_list:
-                        new_line = func_name + " " + class_name + " " + class_id
+                        new_line = f"{func_name} {class_name} {class_id}"
+                        if func_name == "update":
+                            attribute_name, attribute_value = parentheses.rsplit(", ", 1)
+                            attribute_value = attribute_value.strip(")")
+                            new_line += f" {attribute_name} {attribute_value}"
                         return new_line
             else:
                 if func_name in self.func_list:
