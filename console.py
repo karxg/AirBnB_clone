@@ -97,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
         return
 
     def do_show(self, args):
-        """show the class name and id"""
+        """Displays details of a specified instance"""
         if not args:
             print("** class name missing **")
             return
@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
             print(all_objs[key])
 
     def do_destroy(self, args):
-        """Deletes an instance based on the class name and id"""
+        """Deletes a specified instance"""
         if not args:
             print("** class name missing **")
             return
@@ -147,8 +147,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_all(self, args):
-        """Prints all string representation of
-        all instances based or not on the class name."""
+        """Displays details of all instances or of a specified class"""
         storage.reload()
 
         if not args:
@@ -171,10 +170,7 @@ class HBNBCommand(cmd.Cmd):
                 print(obj)
 
     def do_update(self, args):
-        """
-        Updates an instance based on the classname
-        and id by adding or updating attribute
-        """
+        """Updates attributes of a specified instance"""
         if not args:
             print("** class name missing **")
             return
@@ -212,7 +208,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_EOF(self, line):
-        """exit the app"""
+        """Exits the application"""
         print()
         exit()
 
