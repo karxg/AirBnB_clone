@@ -48,17 +48,6 @@ Once the console application is running, you can use the following commands:
 - count [class_name]: Count the number of instances of a specific class.
 - clear: Clear the console screen.
 
-## Contributing
-
-Contributions to the HBNB Project are welcome! To contribute, follow these steps:
-
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Make your changes.
-Commit your changes (git commit -am 'Add new feature').
-Push to the branch (git push origin feature/your-feature).
-Create a new pull request.
-
 ## Learning Objectives
 
 By completing this project, we'll gain knowledge and skills in the following areas:
