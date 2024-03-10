@@ -27,7 +27,15 @@ class HBNBCommand(cmd.Cmd):
         "Review",
     ]
     func_list = [
-        "quit", "show", "all", "create", "destroy", "update", "EOF","count"]
+        "quit",
+        "show",
+        "all",
+        "create",
+        "destroy",
+        "update",
+        "EOF",
+        "count"
+    ]
     class_attr = ["id", "created_at", "updated_at"]
 
     def do_quit(self, line):
@@ -41,12 +49,12 @@ class HBNBCommand(cmd.Cmd):
             class_name = pre_line_list[0]
             func_name = pre_line_list[1].split('(')[0]
             if func_name in self.func_list:
-                new_line = func_name + " "+ class_name
+                new_line = func_name + " " + class_name
                 return new_line
             return line
         else:
             return line
-    
+
     def do_create(self, args):
         """
         Creates a new instance of BaseModel,
@@ -72,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
         all_objs = storage.all()
         if class_name in self.class_names_list:
             filtered_objs = [obj for obj in all_objs.values()
-                        if obj.__class__.__name__ == class_name]
+                             if obj.__class__.__name__ == class_name]
             if filtered_objs != 0:
                 print(len(filtered_objs))
             return
@@ -148,7 +156,7 @@ class HBNBCommand(cmd.Cmd):
 
             all_objs = storage.all()
             filtered_objs = [obj for obj in all_objs.values()
-                     if obj.__class__.__name__ == class_name]
+                             if obj.__class__.__name__ == class_name]
             for obj in filtered_objs:
                 print(obj)
 
