@@ -85,8 +85,7 @@ class TestState_instantiation(unittest.TestCase):
 
 
 class TestState_save(unittest.TestCase):
-    """Unittests for testing save method of the State class."""
-
+    """Unittests for testing the save method of the State class."""
     @classmethod
     def setUp(self):
         try:
