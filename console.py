@@ -43,17 +43,24 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def precmd(self, line: str) -> str:
-        """getting the line ready"""
-        if "." and "()" in line:
+        """Preparing the command line"""
+        if "." in line and "(" in line:
             pre_line_list = line.split(".")
             class_name = pre_line_list[0]
-            func_name = pre_line_list[1].split('(')[0]
-            if func_name in self.func_list:
-                new_line = func_name + " " + class_name
-                return new_line
-            return line
-        else:
-            return line
+            second_part = pre_line_list[1]
+            func_name = second_part.split('(')[0]
+            if "(" in second_part:
+                parentheses = second_part.split("(")[1]
+                if ")" in parentheses:
+                    class_id = parentheses.split(")")[0]
+                    if func_name in self.func_list:
+                        new_line = func_name + " " + class_name + " " + class_id
+                        return new_line
+            else:
+                if func_name in self.func_list:
+                    new_line = func_name + " " + class_name
+                    return new_line
+        return line
 
     def do_create(self, args):
         """
