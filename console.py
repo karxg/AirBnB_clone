@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this is the console class which contorls all the project"""
+"""Defines the HBNBCommand class serves as the console for the project."""
 import cmd
 import os
 import json
@@ -14,7 +14,7 @@ from models.place import Place
 
 
 class HBNBCommand(cmd.Cmd):
-    """this is the console class"""
+    """A command-line interpreter for managing objects in the project."""
 
     prompt = "(hbnb) "
     class_names_list = [
@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def precmd(self, line: str) -> str:
-        """Preparing the command line"""
+        """Prepares the command line for execution"""
         if "." in line and "(" in line:
             pre_line_list = line.split(".")
             class_name = pre_line_list[0]
@@ -69,10 +69,7 @@ class HBNBCommand(cmd.Cmd):
         return line
 
     def do_create(self, args):
-        """
-        Creates a new instance of BaseModel,
-        saves it (to the JSON file) and prints the id
-        """
+        """Creates a new instance of a specified class"""
         if not args:
             print("** class name missing **")
             return
@@ -86,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
 
     def do_count(self, args):
-        """count the number of the same class is there"""
+        """Counts the number of instances of a specified class"""
         storage.reload()
         args_list = args.split()
         class_name = args_list[0]
