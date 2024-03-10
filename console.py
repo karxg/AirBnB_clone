@@ -26,7 +26,8 @@ class HBNBCommand(cmd.Cmd):
         "Place",
         "Review",
     ]
-    func_list = ["quit", "show", "all", "create", "destroy", "update", "EOF"]
+    func_list = [
+        "quit", "show", "all", "create", "destroy", "update", "EOF","count"]
     class_attr = ["id", "created_at", "updated_at"]
 
     def do_quit(self, line):
@@ -34,6 +35,7 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def precmd(self, line: str) -> str:
+        """getting the line ready"""
         if "." and "()" in line:
             pre_line_list = line.split(".")
             class_name = pre_line_list[0]
@@ -61,6 +63,20 @@ class HBNBCommand(cmd.Cmd):
             new_instance = eval(class_name)()
             storage.save()
             print(new_instance.id)
+
+    def do_count(self, args):
+        """count the number of the same class is there"""
+        storage.reload()
+        args_list = args.split()
+        class_name = args_list[0]
+        all_objs = storage.all()
+        if class_name in self.class_names_list:
+            filtered_objs = [obj for obj in all_objs.values()
+                        if obj.__class__.__name__ == class_name]
+            if filtered_objs != 0:
+                print(len(filtered_objs))
+            return
+        return
 
     def do_show(self, args):
         """show the class name and id"""
@@ -131,7 +147,9 @@ class HBNBCommand(cmd.Cmd):
                 return
 
             all_objs = storage.all()
-            for obj in all_objs.values():
+            filtered_objs = [obj for obj in all_objs.values()
+                     if obj.__class__.__name__ == class_name]
+            for obj in filtered_objs:
                 print(obj)
 
     def do_update(self, args):
