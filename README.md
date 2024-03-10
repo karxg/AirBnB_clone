@@ -35,6 +35,30 @@ The command interpreter allows users to perform various operations on AirBnB obj
 - Updating attributes of objects.
 - Deleting objects.
 
+## Usage
+
+Once the console application is running, you can use the following commands:
+
+- quit: Exit the program.
+- create [class_name]: Create a new instance of the specified class.
+- show [class_name] [instance_id]: Display details of a specific instance.
+- destroy [class_name] [instance_id]: Delete a specific instance.
+- all [class_name] or all: Display details of all instances or of a specific class.
+- update [class_name] [instance_id] [attribute_name] [attribute_value]: Update attributes of a specific instance.
+- count [class_name]: Count the number of instances of a specific class.
+- clear: Clear the console screen.
+
+## Contributing
+
+Contributions to the HBNB Project are welcome! To contribute, follow these steps:
+
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature).
+Make your changes.
+Commit your changes (git commit -am 'Add new feature').
+Push to the branch (git push origin feature/your-feature).
+Create a new pull request.
+
 ## Learning Objectives
 
 By completing this project, we'll gain knowledge and skills in the following areas:
