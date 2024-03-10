@@ -58,9 +58,9 @@ class HBNBCommand(cmd.Cmd):
                     if func_name in self.func_list:
                         new_line = f"{func_name} {class_name} {class_id}"
                         if func_name == "update":
-                            attribute_name, attribute_value = parentheses.rsplit(", ", 1)
-                            attribute_value = attribute_value.strip(")")
-                            new_line += f" {attribute_name} {attribute_value}"
+                            attr_name, attr_val = parentheses.rsplit(", ", 1)
+                            attr_val = attr_val.strip(")")
+                            new_line += f" {attr_name} {attr_val}"
                         return new_line
             else:
                 if func_name in self.func_list:
