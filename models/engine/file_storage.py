@@ -12,6 +12,7 @@ class FileStorage:
 
     def all(self):
         """Get all stored objects.
+
         Returns:
             dict: A dictionary containing all stored objects.
         """
