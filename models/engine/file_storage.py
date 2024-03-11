@@ -33,7 +33,7 @@ class FileStorage:
         for key, value in self.all().items():
             json_dict[key] = value.to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as file:
-            json.dump(json_dict, file)
+            json.dump(json_dict, file, indent=4)
 
     def reload(self):
         """Reload objects from the JSON file if it exists."""
